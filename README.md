@@ -1,4 +1,4 @@
-# TABLE TENNIS TOOL
+npm # TABLE TENNIS TOOL
 
 - Repository: `ping-pong-planner` 
 - Type of Challenge: `Consolidation challenge`
@@ -17,9 +17,8 @@
 
 ## The Mission
 
-To ensure every junior at BeCode gets a chance to play some table tennis, or use our future indoor pool.
+To ensure every junior at BeCode gets a chance to play some table tennis.
 
-![img](https://images.unsplash.com/photo-1518928286447-dc161b7cd6fb)
 
 Developing both the **front-end** and **back-end** part of the application. 
 
