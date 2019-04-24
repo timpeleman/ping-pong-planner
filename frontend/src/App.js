@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Register from './components/users/Register/Registers';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class PingPongPlanner extends Component{
+  state= {
+    profilePic:"",
+    username:"",
+    password:"",
+    email:"",
+    confirmPassword:"",
+    validationOke: false
+
+  }
+  confirmationHandler= () =>{
+    if(this.state.email.length > 0 && this.state.password.length > 0 && this.state.password === this.state.confirmPassword){
+      alert('You have registered!')
+      this.setState({
+        validationOke: true
+      })
+    } else if (this.state.email.length > 0 && this.state.password.length > 0 && this.state.password !== this.state.confirmPassword){
+        alert('You passwords don/t match')
+    } else {
+      alert('Check your username/email')
+    }
+    }
+  
+
+  createUsernameHandler =(event) => {
+    
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+
+  render(){
+    
+  
+  
+    return (
+    <div>
+      <Register 
+      changed={this.createUsernameHandler}
+      profilePic={this.state.profilePic}
+      username={this.state.username} 
+      password={this.state.password} 
+      email={this.state.email}
+      confirmPassword={this.state.confirmPassword}
+      submit={this.confirmationHandler}/>
     </div>
   );
-}
+}}
 
-export default App;
+export default PingPongPlanner;
