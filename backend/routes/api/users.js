@@ -93,6 +93,7 @@ router.post('/login', (req, res) => {
         jwt.sign(
           payload,
           keys.secretOrKey,
+          //user stays logged in for 1 hour
           { expiresIn: 3600 },
           (err, token) => {
             res.json({
