@@ -30,10 +30,10 @@ router.post('/register', (req, res) => {
   }
 
   User.findOne({
-    email: req.body.email
+    name: req.body.name
   }).then(user => {
     if (user) {
-      errors.email = 'email already exists';
+      errors.name = 'that username already exists';
       return res.status(400).json(errors);
     } else {
       const newUser = new User({
@@ -47,7 +47,13 @@ router.post('/register', (req, res) => {
           newUser
             .save()
             .then(user => res.json(user))
-            .catch(err => console.log(err));
+            .catch(err => {
+              console.log(err);
+              if (err.code === 11000) {
+                errors.email = 'that email already exists';
+                res.status(400).json(errors);
+              }
+            });
         });
       });
     }
