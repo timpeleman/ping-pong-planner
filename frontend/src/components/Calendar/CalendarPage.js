@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Register extends Component {
+class Calendar extends Component {
   render() {
     return (
         <div>
-          <h2>register</h2>
+          <h2>CALENDARPAGE</h2>
         </div>
     );
   }
 }
 
-export default Register;
+export default Calendar;
