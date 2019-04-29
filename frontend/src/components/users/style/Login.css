@@ -19,6 +19,7 @@ background color in APP.css
 /* ----- LOGO */
 #logo {
     width: 100%;
+    margin-top: -60px;
 }
 
 /* ----- FORM STYLE */
@@ -28,7 +29,6 @@ background color in APP.css
     flex-direction: column;
     justify-content: center;
     margin: 0;
-    margin-top: 80px;
 } 
 
 #emailInputLogin,
@@ -55,7 +55,7 @@ background color in APP.css
 
 /* ----- BUTTONS */
 #loginBTN {
-    background-color: rgba(249, 249, 103, 0.989);
+    background-color: #FFD600;
     text-transform: uppercase;
     padding: 5px;
     margin-top: 15px;
@@ -71,6 +71,8 @@ background color in APP.css
 #loginBTN:hover {
     box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.50);
 }
+
+#loginBTN:focus { outline: none; }
 
 #regBTN {
     margin-top: 40px;

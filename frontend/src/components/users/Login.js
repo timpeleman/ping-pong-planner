@@ -34,7 +34,7 @@ export default class Login extends Component {
     render() {
         return(
             <div id="login">
-                <img src={test} id="gifDesk"/>
+                <img src={test} alt="gifDesk" id="gifDesk"/>
                 <form onSubmit={this.onSubmit} id="loginForm">
                     <img src={logo} alt="logo" id="logo"/>
                     <input
@@ -61,7 +61,7 @@ export default class Login extends Component {
                     value="login" 
                     />
                     <div className="line"></div>
-                    <p id="regBTN"><a href="">register</a></p>
+                    <p id="regBTN"><a href="Register.js">register</a></p>
                 </form>
             </div>
         )
