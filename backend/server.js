@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
+//define routes
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const facts = require('./routes/api/facts');
-
+const booking = require('./routes/api/booking');
 const app = express();
 
 //body parser middleware
@@ -18,7 +19,7 @@ const db = require('./config/keys').mongoURI;
 
 //connect to MongoDB
 mongoose
-  .createConnection(db, {
+  .connect(db, {
     useNewUrlParser: true
   })
   .then(() => console.log('mongoDB connected'))
@@ -34,5 +35,6 @@ require('./config/passport')(passport);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/facts', facts);
+app.use('/api/booking', booking);
 //connect to server
 app.listen(port, () => console.log(`Server running on port ${port}`));
