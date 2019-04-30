@@ -12,8 +12,10 @@ background color in APP.css
 
 /* ----- GIF STYLE */
 #gifDesk {
-    width: 400px;
+    width: 450px;
+    height: 700px;
     margin: 0;
+    background-color: yellow;
 }
 
 /* ----- LOGO */
@@ -24,11 +26,13 @@ background color in APP.css
 
 /* ----- FORM STYLE */
 #loginForm {
-    width: 300px;
+    width: 450px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0;
+    background-color: green;
 } 
 
 #emailInputLogin,
