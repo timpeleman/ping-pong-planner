@@ -17,11 +17,6 @@ export default class Login extends Component {
         };
     }
 
-    callAPI() {
-        fetch("")
-     
-    } 
-
     handleInputChange = (e) => {
         const { value, name } = e.target;
         this.setState({
