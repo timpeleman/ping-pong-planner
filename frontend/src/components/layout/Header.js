@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+// COMPONENTS
+import Navbar from './Navbar';
+
 // ASSETS
 import logo from '../../assets/mini-logo-vector-720x340.png';
 
@@ -14,18 +17,7 @@ class Header extends Component {
                     <img src={logo}/>
                     <Link to="/">HOME</Link>
                 </a>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="../users/Profilepage'">profile</Link>
-                        </li>
-                        <li>
-                            <Link to="../Calendar/CalendarPage">calendar</Link>
-                        </li>
-                        <li>
-                        <Link to="/">delete</Link></li>
-                    </ul>
-                </nav>
+                <Navbar/>
             </div>
         )
     }

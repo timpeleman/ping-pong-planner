@@ -1,22 +1,25 @@
-import React from 'react';
+import React from "react";
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Fragment from 'react-dom-fragment';
 
-// compontents
+// COMPONENT
+import Header from './components/layout/Header';
 import Login from './components/users/Login';
-// import Navbar from './components/layout/Navbar';
 // import Header from './components/layout/Header';
-
-// extra imports
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 
 function App() {
   return (
-      <div className="App">       
-        <Login/>
-      </div>
-
+    <Router>
+        <Fragment>
+          <Header/>
+          <Route exact path='/' component={Login}/>
+        </Fragment>
+    </Router>
   );
 }
 
 export default App;
+
+
