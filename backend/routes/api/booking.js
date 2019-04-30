@@ -3,14 +3,20 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const router = express.Router();
 
-//load calender model
+//load booking model
 const Booking = require('../../models/Booking');
 
 //GET route to '/'
 //Private, Public for now
 
 router.get('/', (req, res) => {
-  return res.json({ msg: 'hier komt de kalender' });
+  Booking.find({}).then((err, bookings) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(bookings);
+    }
+  });
 });
 
 router.post('/', (req, res) => {

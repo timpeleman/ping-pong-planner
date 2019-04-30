@@ -21,6 +21,7 @@ const BookingSchema = new Schema({
   },
   booked: {
     type: Boolean,
+    default: false,
     required: true
   }
 });

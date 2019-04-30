@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //DB config
 const db = require('./config/keys').mongoURI;
-
 //connect to MongoDB
 mongoose
   .connect(db, {
@@ -24,6 +23,18 @@ mongoose
   })
   .then(() => console.log('mongoDB connected'))
   .catch(err => console.log(err));
+
+//empty bookings every sunday
+//load booking model
+const Booking = require('./models/Booking');
+//select every sunday
+const date = new Date();
+const day = date.getDay();
+if (day === 0) {
+  //remove documents from bookings collection
+  Booking.db.collections.bookings.remove({});
+  console.log('reset planning');
+}
 
 //Passport middleware
 app.use(passport.initialize());
@@ -36,5 +47,6 @@ app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/facts', facts);
 app.use('/api/booking', booking);
+
 //connect to server
 app.listen(port, () => console.log(`Server running on port ${port}`));
