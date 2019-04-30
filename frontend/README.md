@@ -4,11 +4,11 @@
 - Type of Challenge: `Consolidation challenge`
 - Duratoin: `15 days`
 - Deadline: `10/05/91`
-- Deployment strategy: 
-            - Heroku + remote DBA
-- Team challenge:
-            - frontend: `Aisha`
-            - backend: `Caroline`
+- Deployment strategy : 
+  - Heroku + remote DBA
+- Team challenge :
+  - frontend: `Aisha`
+  - backend: `Caroline`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
