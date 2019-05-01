@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "frontend": "cd frontend && yarn start",
-    "server": "nodemon backend/server.js",
+    "backend": "nodemon backend/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn backend/server\" \"yarn frontend\""
   },
   "dependencies": {
