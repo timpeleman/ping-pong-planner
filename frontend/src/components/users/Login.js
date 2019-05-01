@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './style/Login.css';
 import { Link } from 'react-router-dom';
 
@@ -6,64 +6,85 @@ import { Link } from 'react-router-dom';
 import test from '../../assets/test.jpg';
 import logo from '../../assets/mini-logo-vector-720x340.png';
 
-
-
 export default class Login extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: "",
-            username: "",
-            password: ""
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      username: '',
+      password: ''
+    };
+  }
 
-    handleInputChange = (e) => {
-        const { value, name } = e.target;
-        this.setState({
-            [name]: value
-        });
-    }
+  //connect front end and back end
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
 
-    onSubmit = (e) => {
-        e.preventDefault();
-        alert('Authentication coming soon!');
-    }
+  callApi = async () => {
+    const response = await fetch('/api/users/login');
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  };
 
-    render() {
-        return(
-            <div id="login">
-                <img src={test} alt="gifDesk" id="gifDesk"/>
-                <form onSubmit={this.onSubmit} id="loginForm">
-                    <img src={logo} alt="logo" id="logo"/>
-                    <input
-                        id="emailInputLogin"
-                        type="email"
-                        name="email"
-                        placeholder="email"
-                        value={this.state.email}
-                        onChange={this.handleInputChange}
-                        required
-                    />
-                    <input
-                        id="passwordInputLogin"
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        required
-                    />
-                    <input 
-                    id="loginBTN"
-                    type="submit" 
-                    value="login" 
-                    />
+  handleInputChange = e => {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
-                    <div className="line"></div>
-                    <Link to="/Register" id="regBTN">register</Link>
-                </form>
-            </div>
-        )
-    }
+  onSubmit = async e => {
+    e.preventDefault();
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    });
+    const body = await response.text();
+    this.setState({ responseToPost: body });
+  };
+
+  render() {
+    return (
+      <div id="login">
+        <img src={test} alt="gifDesk" id="gifDesk" />
+        <form onSubmit={this.onSubmit} id="loginForm">
+          <img src={logo} alt="logo" id="logo" />
+          <input
+            id="emailInputLogin"
+            type="email"
+            name="email"
+            placeholder="email"
+            value={this.state.email}
+            onChange={this.handleInputChange}
+            required
+          />
+          <input
+            id="passwordInputLogin"
+            type="password"
+            name="password"
+            placeholder="password"
+            value={this.state.password}
+            onChange={this.handleInputChange}
+            required
+          />
+          <input id="loginBTN" type="submit" value="login" />
+
+          <div className="line" />
+          <Link to="/Register" id="regBTN">
+            register
+          </Link>
+        </form>
+      </div>
+    );
+  }
 }

@@ -59,7 +59,9 @@ router.post('/register', (req, res) => {
     }
   });
 });
-
+router.get('/login', (req, res) => {
+  res.json({ msg: 'get login page' });
+});
 //@route POST api/users/login
 //@desc login
 //@access Public
@@ -78,6 +80,7 @@ router.post('/login', (req, res) => {
     //check for user
     if (!user) {
       errors.email = 'User not found';
+      console.log(errors);
       return res.status(404).json(errors);
     }
     //check password
@@ -100,10 +103,12 @@ router.post('/login', (req, res) => {
               success: true,
               token: 'Bearer ' + token
             });
+            console.log('welcome');
           }
         );
       } else {
         errors.password = 'password incorrect';
+        console.log(errors);
         return res.status(400).json(errors);
       }
     });
