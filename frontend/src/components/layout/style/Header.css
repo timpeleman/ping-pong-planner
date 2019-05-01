@@ -1,0 +1,25 @@
+/* ----- HEADER */
+#header {
+    background-color: #DCDCDC;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.20);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+#nav-logo {
+    height: 80px;
+}
+
+/* NAVIGATION */
+#nav-list {
+   background-color: yellow;
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    display: block;
+    list-style-type: none;
+}
