@@ -17,17 +17,13 @@ export default class Login extends Component {
   }
 
   //connect front end and back end
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
 
   callApi = async () => {
     const response = await fetch('/api/users/login');
     const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    return body;
+    if (response.status !== 200) {
+      console.log('something went wrong');
+    }
   };
 
   handleInputChange = e => {
@@ -49,8 +45,6 @@ export default class Login extends Component {
         password: this.state.password
       })
     });
-    const body = await response.text();
-    this.setState({ responseToPost: body });
   };
 
   render() {
