@@ -1,0 +1,16 @@
+{
+  "name": "ping-pong-planner",
+  "version": "1.0.0",
+  "scripts": {
+    "frontend": "cd frontend && yarn start",
+    "server": "nodemon backend/server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn backend/server\" \"yarn frontend\""
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
