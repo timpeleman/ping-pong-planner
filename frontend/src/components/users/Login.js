@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import './style/Login.css';
+import { Link } from 'react-router-dom';
 
-// images
+// + IMAGES
 import test from '../../assets/test.jpg';
 import logo from '../../assets/mini-logo-vector-720x340.png';
 
@@ -58,8 +59,9 @@ export default class Login extends Component {
                     type="submit" 
                     value="login" 
                     />
+
                     <div className="line"></div>
-                    <p id="regBTN"><a href="Register.js">register</a></p>
+                    <Link to="/Register" id="regBTN">register</Link>
                 </form>
             </div>
         )

@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import Fragment from 'react-dom-fragment';
+
+// COMPONENTS 
+import Header from '../layout/Header';
 
 class Profile extends Component {
   render() {
     return (
-      <div>
-        <h2>profile</h2>
-      </div>
+      <Fragment>
+        <Header/>
+        <h1>profilepage</h1>
+      </Fragment>
     );
   }
 }
